@@ -23,12 +23,12 @@ Il dataset finale è composto da **6812 righe** e **16 colonne**:
 | `Forma_vendita`                                  | Stringa    | Modalità di vendita (es. somministrazione, dettaglio, ecc.).                                     |
 | `Settore_storico_pe`                             | Oggetto    | Settore di appartenenza dell'esercizio storico.                                                 |
 | `Superficie_somministrazione`                    | Float      | Superficie dedicata alla somministrazione in metri quadrati.                                    |
-| `isolato`                                        | Intero     | Codice dell'isolato di appartenenza.                                                            |
+| `Isolato`                                        | Intero     | Codice dell'isolato di appartenenza.                                                            |
 | `Forma_commercio_solo_somministrazione_boolean`  | Booleano   | Indica se è presente solo somministrazione.                                                     |
 | `Forma_commercio_somministrazione/minuto_boolean`| Booleano   | Indica se è presente somministrazione e vendita al minuto.                                      |
 | `Forma_commercio_prev_somministrazione_boolean`  | Booleano   | Indica se è previsto il commercio con somministrazione.                                         |
 | `Forma_commercio_prev_minuto_boolean`            | Booleano   | Indica se è previsto il commercio al minuto.                                                   |
-| `ingresso`                                       | Oggetto    | Dettagli relativi all'ingresso (es. accessibilità, posizionamento, ecc.).                       |
+| `Ingresso`                                       | Oggetto    | Dettagli relativi all'ingresso (es. accessibilità, posizionamento, ecc.).                       |
 
 ---
 
