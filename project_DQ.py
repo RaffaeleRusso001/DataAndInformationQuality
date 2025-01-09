@@ -22,21 +22,21 @@ from sklearn.preprocessing import LabelEncoder
 !jupyter nbextension enable --py widgetsnbextension
 
 #Importing DATASET
-file_path= 'https://raw.githubusercontent.com/ignys01/DIQ/refs/heads/main/Comune-di-Milano-Pubblici-esercizi.csv'
+file_path= 'https://github.com/RaffaeleRusso001/DataAndInformationQuality/blob/main/SupportDataset/Comune-di-Milano-Pubblici-esercizi.csv'
 try:
   DB = pd.read_csv(file_path, sep=';',encoding='utf-16')
 except Exception as e:
     print(e)
 
 #Importing external DATASET (VIARIO) for further processing
-file_path= 'https://raw.githubusercontent.com/ignys01/DIQ/refs/heads/main/VIARIO_Milano.csv'
+file_path= 'https://github.com/RaffaeleRusso001/DataAndInformationQuality/blob/main/SupportDataset/VIARIO_Milano.csv'
 try:
   MI = pd.read_csv(file_path, sep=';',encoding='utf-8')
 except Exception as e:
     print(e)
 
 #Importing external Dataset (CIVICI)
-file_path_civici='https://raw.githubusercontent.com/ignys01/DIQ/refs/heads/main/CIVICI_Milano.csv'
+file_path_civici='https://github.com/RaffaeleRusso001/DataAndInformationQuality/blob/main/SupportDataset/CIVICI_Milano.csv'
 try:
   MI_CIVICI = pd.read_csv(file_path_civici, sep=';',encoding='utf-8')
 except Exception as e:
