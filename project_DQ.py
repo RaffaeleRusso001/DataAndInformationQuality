@@ -487,7 +487,6 @@ DB['ZD']=DB['ZD'].astype('int64')
 DB['Forma_vendita']=DB['Forma_vendita'].astype('string')
 DB['Settore_storico_pe']=DB['Settore_storico_pe'].astype('string')
 DB['Codice_via']=DB['Codice_via'].astype('string')
-DB['Settore_storico_pe']=DB['Settore_storico_pe'].astype('string')
 DB['civico_ubicazione']=DB['civico_ubicazione'].astype('string')
 DB['Isolato'] = pd.to_numeric(DB['Isolato'], errors='coerce')
 DB['Isolato'] = DB['Isolato'].astype('Int64')
@@ -545,6 +544,7 @@ def sort_and_deduplicate_sectors(sector_string):
     return ';'.join(sorted(parts))
 
 DB['Settore_storico_pe'] = DB['Settore_storico_pe'].apply(sort_and_deduplicate_sectors)
+DB['Settore_storico_pe']=DB['Settore_storico_pe'].astype('string')
 
 """#**4. DATA CLEANING (ERROR DETECTION&CORRECTION MISSING VALUES)**
 
@@ -576,6 +576,7 @@ DB['Ingresso_Finale'] = DB.apply(
 )
 DB.drop(columns=['Ingresso', 'accesso'], inplace=True)
 DB.rename(columns={'Ingresso_Finale': 'Ingresso'}, inplace=True)
+DB['Ingresso']=DB['Ingresso'].astype('string')
 
 """### Missing Values Management:
 
@@ -601,6 +602,8 @@ DB.loc[DB['Superficie_somministrazione'].isnull(), 'Superficie_somministrazione'
 #replace NaN values in Settore_storico_pe with mode
 mode_value = DB['Settore_storico_pe'].mode()[0]
 DB['Settore_storico_pe'].fillna(mode_value, inplace=True)
+
+DB.info()
 
 """In this section, we implement a function to impute missing values in specific columns of the dataset using machine learning techniques. The function utilizes a Random Forest model, applying a regressor for numerical columns and a classifier for categorical columns. It handles one-hot encoding for categorical variables and updates the missing values directly in the dataset. We apply this function to impute missing data for the "isolato" and "Tipo_esercizio_storico_pe" columns, ensuring that the dataset is complete for further analysis."""
 
@@ -858,3 +861,5 @@ for col in columns:
 
 #export to csv DB
 DB.to_csv('DB_final.csv', index=False)
+
+DB.info()

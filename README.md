@@ -21,14 +21,14 @@ Il dataset finale è composto da **6812 righe** e **16 colonne**:
 | `Codice_via`                                     | Stringa    | Codice identificativo della via.                                                                |
 | `ZD`                                             | Intero     | Zona demografica associata.                                                                     |
 | `Forma_vendita`                                  | Stringa    | Modalità di vendita (es. somministrazione, dettaglio, ecc.).                                     |
-| `Settore_storico_pe`                             | Oggetto    | Settore di appartenenza dell'esercizio storico.                                                 |
+| `Settore_storico_pe`                             | Stringa    | Settore di appartenenza dell'esercizio storico.                                                 |
 | `Superficie_somministrazione`                    | Float      | Superficie dedicata alla somministrazione in metri quadrati.                                    |
 | `Isolato`                                        | Intero     | Codice dell'isolato di appartenenza.                                                            |
 | `Forma_commercio_solo_somministrazione_boolean`  | Booleano   | Indica se è presente solo somministrazione.                                                     |
 | `Forma_commercio_somministrazione/minuto_boolean`| Booleano   | Indica se è presente somministrazione e vendita al minuto.                                      |
 | `Forma_commercio_prev_somministrazione_boolean`  | Booleano   | Indica se è previsto il commercio con somministrazione.                                         |
 | `Forma_commercio_prev_minuto_boolean`            | Booleano   | Indica se è previsto il commercio al minuto.                                                   |
-| `Ingresso`                                       | Oggetto    | Dettagli relativi all'ingresso (es. accessibilità, posizionamento, ecc.).                       |
+| `Ingresso`                                       | Stringa    | Dettagli relativi all'ingresso (es. accessibilità, posizionamento, ecc.).                       |
 
 ---
 
