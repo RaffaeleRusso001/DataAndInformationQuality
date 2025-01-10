@@ -63,6 +63,7 @@ In this section, we evaluate the **quality of the dataset** by computing essenti
 - **Distinctness**: Ratio of distinct (unique) values to the count of non-missing entries.
 - **Constancy**: Measures the dominance of the most frequent value within the column.
 - **Completeness**: Proportion of non-missing (non-null) values in the column compared to the total number of rows.
+
 These metrics provide a detailed understanding of the dataset's structure, variability, and potential data quality issues, laying the foundation for effective data cleaning and preprocessing.
 """
 
@@ -225,7 +226,7 @@ print("Tipo_esercizio_storico_pe: \n",DB.Tipo_esercizio_storico_pe.unique())
 In this section we perform data extraction and transformation steps to clean and structure the `Ubicazione` column from the original dataset assuming that that the "Codice_via" column is "correct". The goal is to extract and standardize key components of the location information, creating new columns for specific attributes. The process is outlined as follows:
 
 1. **Define Regular Expressions for Pattern Matching**:
-   - Various patterns are defined to extract information such as the street name (`via`), street number (`civico_ubicazione`), block number (`isolato`), access point (`accesso`), zone description (`ZD`), and entrance details (`ingresso`).
+   - Various patterns are defined to extract information such as (`Via`),  (`civico_ubicazione`), (`Isolato`), (`accesso`), (`ZD`), (`Ingresso`).
 
 2. **Apply Regular Expressions to Extract Data**:
    - The `re.search()` function is used to extract the relevant data from the `Ubicazione` column based on the defined patterns. New columns are created for each type of extracted information, such as `via`, `civico_ubicazione`, and `isolato`.
@@ -418,7 +419,7 @@ df19[mask] = np.nan
 
 print(df19.unique())
 
-"""**Focus: Forma_commercio, Forma_commerco_prev, Forma_vendita**
+"""**Focus: Forma_commercio, Forma_commerco_prev**
 
 Implementing a new mapping approach for handling unique values in the columns `Forma_commercio` and `Forma_commercio_prev`. For each unique value in these columns, a new boolean column is created where the corresponding row is marked as `True` if the value matches the current row in the original column, and `False` otherwise. If the value is `NaN`, it is mapped to `False`. After the mapping process, the original columns (`Forma_commercio` and `Forma_commercio_prev`) are dropped from the DataFrame if they are no longer needed.
 
@@ -696,7 +697,7 @@ DB.to_csv('DB_after_inputing.csv', index=False)
 
 """# **5. DATA CLEANING (ERROR DETECTION&CORRECTION OUTLIERS)**
 
-Focusing on handling missing values, particularly in light of the distribution of categorical versus numerical variables within the dataset. Given that categorical variables are more prevalent, our approach to imputing missing values takes this into account.
+Focusing on handling missing values, particularly in light of the distribution of categorical versus numerical variables within the dataset. Given that categorical variables are more prevalent, our approach to analyse missing values takes this into account.
 
 We begin by performing a frequency analysis on each column to understand the distribution of data. For numerical variables, we summarize their statistics, including quantiles, and apply the IQR method to detect potential outliers. For categorical variables, we calculate the frequency distribution of each category and identify rare categories with low frequencies (below 1%), which may indicate outliers.
 """
@@ -861,5 +862,3 @@ for col in columns:
 
 #export to csv DB
 DB.to_csv('DB_final.csv', index=False)
-
-DB.info()
